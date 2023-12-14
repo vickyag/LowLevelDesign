@@ -27,8 +27,12 @@ public class DealManager {
         return instance;
     }
 
+    private boolean validate(User user, Class<?> target){
+        return target.isInstance(user); // 1st way
+//        return user.getClass() == target;  // 2nd way
+    }
     public long createDeal(User user, int price, int noOfItems, LocalDateTime endTime) throws IllegalAccessException {
-        if(!(user instanceof Seller)) throw new IllegalAccessException("User does not have access");
+        if(!validate(user, Seller.class)) throw new IllegalAccessException("User does not have access");
         HashSet<Item> items = new HashSet<>();
         while(noOfItems > 0){
             items.add(new Item("item" + noOfItems, price));
@@ -40,7 +44,7 @@ public class DealManager {
     }
 
     public void endDeal(User user, long dealId) throws IllegalAccessException {
-        if(!(user instanceof Seller)) throw new IllegalAccessException("User does not have access");
+        if(!validate(user, Seller.class)) throw new IllegalAccessException("User does not have access");
         Deal deal = deals.getOrDefault(dealId, null);
         if(deal == null){
             System.out.println("No deal found");
@@ -51,7 +55,7 @@ public class DealManager {
     }
 
     public void updateDeal(User user, long dealId, int uNoOfItems, LocalDateTime uEndTime) throws IllegalAccessException {
-        if(!(user instanceof Seller)) throw new IllegalAccessException("User does not have access");
+        if(!validate(user, Seller.class)) throw new IllegalAccessException("User does not have access");
         Deal deal = deals.getOrDefault(dealId, null);
         if(deal == null){
             System.out.println("No deal found");
@@ -73,7 +77,7 @@ public class DealManager {
     }
 
     public void updateDeal(User user, long dealId, int uNoOfItems) throws IllegalAccessException {
-        if(!(user instanceof Seller)) throw new IllegalAccessException("User does not have access");
+        if(!validate(user, Seller.class)) throw new IllegalAccessException("User does not have access");
         Deal deal = deals.getOrDefault(dealId, null);
         if(deal == null){
             System.out.println("No deal found");
@@ -94,7 +98,7 @@ public class DealManager {
     }
 
     public void updateDeal(User user, long dealId, LocalDateTime uEndTime) throws IllegalAccessException {
-        if(!(user instanceof Seller)) throw new IllegalAccessException("User does not have access");
+        if(!validate(user, Seller.class)) throw new IllegalAccessException("User does not have access");
         Deal deal = deals.getOrDefault(dealId, null);
         if(deal == null){
             System.out.println("No deal found");

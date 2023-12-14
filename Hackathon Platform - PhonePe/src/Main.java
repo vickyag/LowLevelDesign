@@ -1,8 +1,9 @@
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        HackathonPlatform platform = new HackathonPlatform(new TotalScoreStrategy());
+        HackathonPlatform platform = new HackathonPlatform(new TotalScoringStrategy());
 
         platform.addProblem("Problem 1", "TagA", Difficulty.EASY, 10);
         platform.addProblem("Problem 4", "TagA", Difficulty.EASY, 20);

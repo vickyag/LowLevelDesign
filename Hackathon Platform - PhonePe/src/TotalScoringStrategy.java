@@ -1,6 +1,4 @@
-import java.util.List;
-
-class TotalScoreStrategy implements ScoringStrategy {
+class TotalScoringStrategy implements ScoringStrategy {
     @Override
     public int calculateScore(Contestant contestant) {
         int totalScore = 0;
