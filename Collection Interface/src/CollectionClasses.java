@@ -1,21 +1,25 @@
-import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
-public class CollectionInJava {
+public class CollectionClasses {
 
     public static void main(String... s){
 
         int[] arr = new int[5];
         int[][] arr2 = new int[10][];
         Integer[] arr3 = new Integer[1];
-        arr[0] = 2;
+        arr[1] = 2;
         int size = arr.length;
         Comparator<Integer> integerComparator = (a1, a2) -> { return a2 - a1;};
         Arrays.sort(arr);
         Arrays.sort(arr3, integerComparator);
         Arrays.asList(arr);
 
+        Object objectArr = arr;
+        System.out.println(objectArr instanceof int[]);
+        int[] newArr = (int[]) objectArr;
+        newArr[0] = 3;
+        System.out.println(newArr[0]);
 
         String str = "ab";
         str.length();
@@ -58,14 +62,16 @@ public class CollectionInJava {
 
         Map<Integer, Integer> mp = new HashMap<>();
         mp.put(1, 1);
+        String s2 = "test";
+        s2.hashCode();
 
         Set<Integer> set = new HashSet<>();
         set.add(1);
         set.contains(1);
         set.remove(1);
 
-
     }
+
 }
 
 
