@@ -21,6 +21,7 @@ public class ComparatorFunction {
         print(integers);
         Arrays.sort(integers, Comparator.reverseOrder()); // reverse natural order sorting i.e., descending order
         print(integers);
+
         System.out.println("-------------------------------------------------------------------------");
 
         String[] strings = new String[]{"alice", "boc", "bob", "charlie"};

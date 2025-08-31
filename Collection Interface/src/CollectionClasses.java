@@ -2,7 +2,6 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class CollectionClasses {
-
     public static void main(String... s){
 
         int[] arr = new int[5];
@@ -41,7 +40,7 @@ public class CollectionClasses {
         list1.size();
         list1.toArray();
         Collections.sort(list2, stringComparator);
-        Collections.synchronizedList(list1);
+        list1 = Collections.synchronizedList(list1);
 
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
